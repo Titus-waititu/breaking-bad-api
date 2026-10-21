@@ -24,9 +24,11 @@ async function fetchQuotes() {
     throw new Error("Quote API returned no quotes in the expected format");
   }
 
-  console.log(`[${new Date().toLocaleString()}] Fetched ${validQuotes.length} quote(s):`);
+  console.log(
+    `[${new Date().toLocaleString()}] Fetched ${validQuotes.length} quote(s):`,
+  );
   for (const { quote, author } of validQuotes) {
-    console.log(`"${quote}" — ${author}`);
+    console.log(`"${quote}" - ${author}`);
   }
 }
 
