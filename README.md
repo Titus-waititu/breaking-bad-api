@@ -1,5 +1,17 @@
 # React + TypeScript + Vite
 
+## Fetch quotes every five minutes
+
+Run the quote fetcher in a terminal with:
+
+```sh
+pnpm quotes:cron
+```
+
+It fetches immediately, prints the quote(s), then repeats every five minutes.
+The default endpoint is `http://localhost:3001/v1/quotes`; set `QUOTE_API_URL`
+to use a different quote API. Stop the process with `Ctrl+C`.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
