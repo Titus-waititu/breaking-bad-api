@@ -1,4 +1,4 @@
-const FIVE_MINUTES = 5 * 60 * 1000;
+const FIVE_MINUTES = 1 * 60 * 1000;
 const quoteUrl =
   process.env.QUOTE_API_URL ?? "http://localhost:3001/v1/quotes/10";
 
