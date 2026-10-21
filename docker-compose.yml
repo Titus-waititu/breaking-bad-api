@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Service 1: Your Node.js API
+  api:
+    build: .                          # Builds the image using your local Dockerfile
+    container_name: breaking-bad-api
+    ports:
+      - "3001:3001"                   # Maps local port 3001 to container port 3001
+    environment:
+      - HOST=0.0.0.0
+      - MONGO_URI=mongodb://database:27017/breaking_bad # Connection string for your app
+    depends_on:
+      - database                      # Ensures the database starts before the API starts
+
+  # Service 2: The MongoDB Database
+  database:
+    image: mongo:6.0                  # Pulls the official MongoDB image from Docker Hub
+    container_name: breaking-bad-db
+    ports:
+      - "27017:27017"                 # Maps local port 27017 to Mongo's default port
+    volumes:
+      - mongo_data:/data/db           # Keeps your data safe even if the container restarts
+
+# Named volume to persist database records on your computer
+volumes:
+  mongo_data:
